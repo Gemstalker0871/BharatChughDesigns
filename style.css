@@ -5,15 +5,21 @@
     list-style: none;
     text-decoration: none;
     scroll-behavior: smooth;
+    
 
 }
-body{
+
+body {
     background-color: #161616;
-    background: url(Image/slider_bg.png);
+    background-image: url('media_library_export-bharat_chugh_designs-2025_07_13_05_29_58/Marble-Balusterade.jpg');
+    background-repeat: repeat-y;         /* Only repeat vertically */
+    background-size: 100% auto;          /* Stretch to full width, height adjusts automatically */
+    background-position: top center;     /* Align it nicely */
     position: relative;
     z-index: 1;
 }
-body::after{
+
+body::after {
     content: '';
     position: absolute;
     top: 0;
@@ -29,7 +35,7 @@ body::after{
 :root{
     --white-snow: #fff;
     --forest-green: #345e42;
-    --subset-orange: #ff911b;
+    --subset-orange: #a62323;
     --slate-gray: #5c5c5c;
     --charcoal-black: #2e2e2e;
     --pg-color: #bcbcbc;
@@ -97,8 +103,8 @@ body{
 }
 .section_title h2{
     font-size: 3rem;
-    line-height: 6rem;
-    color: #ff8400b8;
+    line-height: 2rem;
+    color: #d10505bc;
     text-shadow: 1.4px 1.4px var(--white-snow);
     letter-spacing: 1px;
 }
@@ -207,11 +213,19 @@ nav{
     width: 100%;
 }
 .logo img{
+    max-width: 22em;
+    cursor: pointer;
+    object-fit: contain;
+}
+.logo_Footer{
+    width: 100%;
+}
+.logo_Footer img{
     max-width: 25em;
     cursor: pointer;
     object-fit: contain;
-
 }
+
 .btn1{
     height: 60px;
     width: 200px;
@@ -222,7 +236,7 @@ nav{
     font-weight: 600;
     transition: all 0.6s;
     color: var(--white-snow);
-    box-shadow: 4px 4px 3px #272727dd, inset 4px 4px 25px #ff7403dd;
+    box-shadow: 4px 4px 3px #272727dd, inset 4px 4px 25px #ff0303dd;
     transform: scale(0.9);
     cursor: pointer;
 }
@@ -235,17 +249,41 @@ nav{
    .hero_Wrapper{
     min-height: 100vh;
     padding: 8px 8% !important;
-    background: url(Image/slider_bg.png);
+    background: url(media_library_export-bharat_chugh_designs-2025_07_13_05_29_58/farmhouse-at-Nuh.jpg);
     background-position-y: bottom;
     background-repeat: no-repeat; 
     background-size: cover;
+    transition: opacity 0.6s ease-in-out;
+    opacity: 1;
    }
+
+   .hero_Wrapper.fade-out {
+  opacity: 0;
+}
+
+.fade_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade_overlay.active {
+  opacity: 1;
+}
 
    .hero_title{
     height: 620px;
     width: 40%;
     position: relative;
     padding: 0;
+    z-index: 2;
    }
 
    .hero_title h1{
@@ -267,6 +305,59 @@ nav{
     font-size: 18px;
     font-weight: 400;
    }
+
+
+   .slideing{
+    padding: 5px;
+    background-color: #ffffff;
+    backdrop-filter: blur(2px);
+    border: #3a3a3a solid;
+    overflow: hidden;
+    white-space: nowrap;
+   }
+
+
+   .slideing h2{
+    display: inline-block;
+    color: var(--subset-orange);
+    position: relative;
+    animation: move-words 20s linear infinite;
+    margin: 0;
+    white-space: nowrap;
+   }
+
+   @keyframes move-words {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+  
+.hero_side_button {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 20px;
+}
+
+.hero_side_button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+
 
 
    /* About Section */
@@ -450,6 +541,45 @@ nav{
    .portfolio_box p {
     line-height: 1.6rem;
    }
+
+
+
+   /* .portfolio_page {
+  position: relative;
+  overflow: hidden; /* Important: hide content outside image *
+}
+
+.portfolio_page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio_box {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Start fully outside to the right of the image *
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+  flex-direction: column;
+  color: var(--white-snow);
+  z-index: 9;
+  transition: 0.6s ease;
+  background-color: #00000044;
+  backdrop-filter: blur(2px);
+}
+
+/* On hover: slide it in from the side (right-to-left) *
+.portfolio_page:hover .portfolio_box {
+  left: 0;
+} */
+
+
+
    .scroll-hint {
   font-size: 14px;
   color: var(--pg-color);
@@ -466,6 +596,7 @@ nav{
 
 
 .Teams{
+    margin-top: 50px;
     flex-direction: column;
     background-color: #1e1e1e;
 }
@@ -545,7 +676,8 @@ nav{
 .team_works_steps{
     min-height: 800px;
     width: 50%;
-    background-image: url(Image/steps-img.png);
+    background-image: url(media_library_export-bharat_chugh_designs-2025_07_13_05_29_58/DSCN8316-scaled.jpg);
+    margin-right: 10px;
     background-size: cover;
     background-position: center center;
     object-fit: cover;
@@ -641,9 +773,17 @@ nav{
     align-items: center;
     gap: 50px;
 }
+
+
 .client_page{
     cursor: pointer;
 }
+.client_page:hover{
+    transform: scale(1.1);
+    transition: 1s
+}
+
+
 .client_det_container{
     display: flex;
     justify-content: center;
@@ -683,7 +823,7 @@ nav{
     }
 }
 .client_Details p{
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
 }
@@ -773,9 +913,7 @@ nav{
     transition: all 0.6s;
 }
 
-.Banner_title span{
 
-}
 
 
 /* Blog */
@@ -1232,4 +1370,89 @@ nav{
         font-size: 14px;
         text-align: center;
     }
+}
+
+
+
+
+
+
+
+
+.hero_slider_wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero_slider_bg {
+  height: 100%;
+  z-index: 1;
+}
+
+.hero_slider_bg .splide__slide {
+  height: 100vh;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero_fixed_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  padding: 8px 8%;
+  display: flex;
+  align-items: center;
+  color: white;
+  pointer-events: none; /* let arrow button be clickable if placed inside */
+}
+
+.hero_title1 {
+  height: 620px;
+  width: 40%;
+  position: relative;
+  pointer-events: auto;
+}
+
+.hero_heading1 {
+  position: relative;
+}
+
+.hero_heading1::after {
+  content: '';
+  position: absolute;
+  top: 7%;
+  left: -5%;
+  height: 90%;
+  width: 1.5px;
+  background-color: var(--subset-orange);
+}
+
+.hero_title1 h1 {
+  font-size: 3rem;
+  line-height: 5rem;
+}
+
+.hero_title1 p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+
+.hero_side_button1 {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+  pointer-events: auto;
 }
